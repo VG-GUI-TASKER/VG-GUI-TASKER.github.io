@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VG-GUI-Bench: Video-Grounded GUI Agent Benchmark</title>
+  <meta name="description" content="A benchmark for evaluating vision-language models on GUI automation tasks using video tutorial guidance." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <h1 class="title">VG-GUI-Bench</h1>
+      <p class="subtitle">Video-Grounded GUI Agent Benchmark</p>
+      <p class="tagline">Evaluating vision-language models on mobile GUI automation with video tutorial guidance.</p>
+
+      <div class="authors">
+        <span class="author">Author One<sup>1</sup></span>
+        <span class="author">Author Two<sup>1</sup></span>
+        <span class="author">Author Three<sup>2</sup></span>
+      </div>
+      <div class="affiliations">
+        <span><sup>1</sup>Affiliation One</span>
+        <span><sup>2</sup>Affiliation Two</span>
+      </div>
+
+      <nav class="links">
+        <a class="btn" href="#" target="_blank" rel="noopener">
+          <span>📄</span> Paper
+        </a>
+        <a class="btn" href="#" target="_blank" rel="noopener">
+          <span>📑</span> arXiv
+        </a>
+        <a class="btn" href="https://github.com/VG-GUI-TASKER/VG-GUI-TASKER" target="_blank" rel="noopener">
+          <span>💻</span> Code
+        </a>
+        <a class="btn" href="https://huggingface.co/datasets/runamu/MONDAY" target="_blank" rel="noopener">
+          <span>🗂️</span> Data
+        </a>
+        <a class="btn" href="#leaderboard">
+          <span>🏆</span> Leaderboard
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container narrow">
+        <h2>Abstract</h2>
+        <p>
+          VG-GUI-Bench evaluates how well multimodal large language models (VLMs) can predict the
+          next GUI action on a mobile device, given reference frames extracted from YouTube tutorial
+          videos and the current screen state. The benchmark is built on the
+          <a href="https://huggingface.co/datasets/runamu/MONDAY" target="_blank" rel="noopener">MONDAY</a> dataset.
+          Given a tutorial video showing how to complete a task on a mobile phone, the model must
+          understand the workflow from reference frames, identify its current position in the task
+          from previous action history, and predict the exact next action on the current screen.
+        </p>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container narrow">
+        <h2>Task Formulation</h2>
+        <p>Given a tutorial video, the model predicts the next GUI action by reasoning over:</p>
+        <ol class="steps">
+          <li>Understanding the workflow from reference frames (keyframes / uniform samples / annotated frames).</li>
+          <li>Identifying the current position in the task from previous action history.</li>
+          <li>Predicting the <strong>exact next action</strong> on the current screen.</li>
+        </ol>
+
+        <h3>Supported Actions</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Action</th><th>Format</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>CLICK</td><td><code>CLICK(x, y)</code></td><td>Tap at normalized coordinates (0.0–1.0)</td></tr>
+              <tr><td>SCROLL</td><td><code>SCROLL(x1, y1, x2, y2)</code></td><td>Swipe gesture</td></tr>
+              <tr><td>TYPE</td><td><code>TYPE("text")</code></td><td>Text input</td></tr>
+              <tr><td>PRESS</td><td><code>PRESS("key")</code></td><td>BACK / HOME / ENTER</td></tr>
+              <tr><td>ZOOM</td><td><code>ZOOM()</code></td><td>Multi-touch gesture</td></tr>
+              <tr><td>FINISH</td><td><code>FINISH()</code></td><td>Task complete or impossible</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container narrow">
+        <h2>Reference Image Modes</h2>
+        <p>The benchmark supports 12 reference modes to study how different visual context strategies affect agent performance.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Mode</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><code>single</code></td><td>No reference frames; only the current screen</td></tr>
+              <tr><td><code>origin</code></td><td>Scene-timestamp keyframes from video</td></tr>
+              <tr><td><code>gt</code></td><td>Ground-truth annotated frame with red bounding box (oracle)</td></tr>
+              <tr><td><code>annotation</code></td><td>Annotated keyframes as reference</td></tr>
+              <tr><td><code>uniform5</code> / <code>uniform10</code></td><td>5 or 10 uniformly sampled frames</td></tr>
+              <tr><td><code>tasker</code> / <code>bfs</code> / <code>gbfs</code> / <code>dijkstra</code></td><td>Algorithmic keyframe selection strategies</td></tr>
+              <tr><td><code>videoagent</code> / <code>videotree</code></td><td>Video understanding agent-based frame selection</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note">Each mode runs in <strong>cut</strong> (cropped to phone screen) or <strong>nocut</strong> (full frame) variant.</p>
+      </div>
+    </section>
+
+    <section class="section alt" id="leaderboard">
+      <div class="container narrow">
+        <h2>🏆 Leaderboard</h2>
+        <p>Action prediction accuracy across models. <em>(Replace with your results.)</em></p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>#</th><th>Model</th><th>Type Acc.</th><th>Param Acc.</th><th>Overall</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>Model A</td><td>—</td><td>—</td><td>—</td></tr>
+              <tr><td>2</td><td>Model B</td><td>—</td><td>—</td><td>—</td></tr>
+              <tr><td>3</td><td>Model C</td><td>—</td><td>—</td><td>—</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container narrow">
+        <h2>BibTeX</h2>
+        <pre class="bibtex"><code>@misc{vgguibench2026,
+  title  = {VG-GUI-Bench: A Video-Grounded GUI Agent Benchmark},
+  author = {Author One and Author Two and Author Three},
+  year   = {2026},
+  url    = {https://vg-gui-tasker.github.io}
+}</code></pre>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>
+        Built on the <a href="https://huggingface.co/datasets/runamu/MONDAY" target="_blank" rel="noopener">MONDAY</a> dataset.
+        Action matching adapted from
+        <a href="https://github.com/google-research/google-research/tree/master/android_in_the_wild" target="_blank" rel="noopener">Android-in-the-Wild</a>.
+      </p>
+      <p class="muted">&copy; 2026 VG-GUI-Bench. Page template is free to use.</p>
+    </div>
+  </footer>
+</body>
+</html>

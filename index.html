@@ -21,11 +21,11 @@
       <p class="subtitle">Introducing <span class="acronym">VG-GUI-Bench</span> &mdash; a video-guided GUI agent benchmark &mdash; and <span class="acronym">TASKER</span>, a task-driven and scene-aware keyframe search algorithm.</p>
 
       <div class="authors">
-        <span class="author">Sunqi Fan<sup>1</sup></span>
+        <span class="author"><a href="https://fansunqi.github.io/" target="_blank" rel="noopener">Sunqi Fan</a><sup>1</sup></span>
         <span class="author">Qingle Liu<sup>1</sup></span>
         <span class="author">Runqi Yin<sup>1</sup></span>
-        <span class="author">Meng-Hao Guo<sup>1</sup></span>
-        <span class="author">Shuojin Yang<sup>1,&#9993;</sup></span>
+        <span class="author"><a href="https://menghaoguo.github.io/" target="_blank" rel="noopener">Meng-Hao Guo</a><sup>1</sup></span>
+        <span class="author"><a href="https://www.cs.tsinghua.edu.cn/csen//info/1308/4660.htm" target="_blank" rel="noopener">Shuojin Yang</a><sup>1,&#9993;</sup></span>
       </div>
       <div class="affiliations"><sup>1</sup>Tsinghua University, Beijing, China</div>
       <p class="email">&#9993; Corresponding author</p>
@@ -34,6 +34,14 @@
         <a class="btn" href="assets/paper.pdf" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6zm7 1.5L18.5 9H13V3.5zM8 13h8v2H8v-2zm0 4h8v2H8v-2z"/></svg>
           Paper
+        </a>
+        <a class="btn ghost" href="https://arxiv.org/abs/2606.29445" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 4h18v2H3V4zm0 5h18v2H3V9zm0 5h12v2H3v-2zm0 5h12v2H3v-2z"/></svg>
+          arXiv
+        </a>
+        <a class="btn ghost" href="https://huggingface.co/papers/2606.29445" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zM8.5 9.5a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6zm7 0a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6zM12 18c-2.3 0-4.2-1.4-5-3.4-.2-.5.1-1 .6-1.1.2 0 .4 0 .5.1.9.6 2.4 1.4 3.9 1.4s3-.8 3.9-1.4c.4-.3 1-.2 1.2.3.1.2.1.4 0 .6-.9 2-2.8 3.5-5.1 3.5z"/></svg>
+          HF Daily Paper
         </a>
         <a class="btn ghost" href="https://github.com/VG-GUI-TASKER/VG-GUI-TASKER" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.8-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
@@ -55,7 +63,7 @@
     <!-- Teaser / Motivation -->
     <section class="section">
       <div class="container">
-        <figure class="figure plain">
+        <figure class="figure plain wide">
           <img src="assets/motivation.png" alt="Two progressive levels of video understanding: low-level VideoQA and high-level video-guided agentic tasks." />
           <figcaption>
             We advance video understanding from the <strong>low-level VideoQA</strong> paradigm toward the
@@ -127,7 +135,7 @@
           A dedicated benchmark for evaluating MLLM-based GUI agents on long-horizon tasks guided by video tutorials,
           built upon the MONDAY dataset.
         </p>
-        <figure class="figure">
+        <figure class="figure wide">
           <img src="assets/VG-GUI-Bench.png" alt="Overview of the VG-GUI-Bench benchmark: pipeline, action space, and metrics." />
           <figcaption>Overview of VG-GUI-Bench: the benchmark pipeline, the standardized action space, and the evaluation metrics with their formulas.</figcaption>
         </figure>
@@ -178,7 +186,7 @@
           segments (nodes), and an MLLM evaluates cost functions and termination confidence to decide which segments to
           expand &mdash; selecting a compact yet informative set of keyframes.
         </p>
-        <figure class="figure">
+        <figure class="figure tall">
           <img src="assets/TASKER.png" alt="Illustration of TASKER's cost function evaluation and node expansion steps." />
           <figcaption>
             TASKER's cost-function evaluation and node-expansion steps. The <strong>GBFS</strong> variant evaluates

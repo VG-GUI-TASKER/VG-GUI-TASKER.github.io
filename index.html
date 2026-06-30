@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VG-GUI-Bench: Video-Grounded GUI Agent Benchmark</title>
-  <meta name="description" content="A benchmark for evaluating vision-language models on GUI automation tasks using video tutorial guidance." />
+  <title>Bridging VideoQA and Video-Guided Agentic Tasks via Generalized Keyframe Extraction</title>
+  <meta name="description" content="VG-GUI-Bench and TASKER: bridging Video Question Answering and video-guided agentic GUI tasks with a task-driven, scene-aware keyframe extraction algorithm. Accepted by ECCV 2026." />
+  <meta property="og:title" content="VG-GUI-Bench & TASKER (ECCV 2026)" />
+  <meta property="og:description" content="Bridging VideoQA and Video-Guided Agentic Tasks via Generalized Keyframe Extraction." />
+  <meta property="og:image" content="assets/motivation.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -13,134 +16,333 @@
 <body>
   <header class="hero">
     <div class="container">
-      <h1 class="title">VG-GUI-Bench</h1>
-      <p class="subtitle">Video-Grounded GUI Agent Benchmark</p>
-      <p class="tagline">Evaluating vision-language models on mobile GUI automation with video tutorial guidance.</p>
+      <div class="venue-badge"><span class="star">&#9733;</span> Accepted by ECCV 2026</div>
+      <h1 class="title">Bridging VideoQA and Video-Guided Agentic Tasks via Generalized Keyframe Extraction</h1>
+      <p class="subtitle">Introducing <span class="acronym">VG-GUI-Bench</span> &mdash; a video-guided GUI agent benchmark &mdash; and <span class="acronym">TASKER</span>, a task-driven and scene-aware keyframe search algorithm.</p>
 
       <div class="authors">
-        <span class="author">Author One<sup>1</sup></span>
-        <span class="author">Author Two<sup>1</sup></span>
-        <span class="author">Author Three<sup>2</sup></span>
+        <span class="author">Sunqi Fan<sup>1</sup></span>
+        <span class="author">Qingle Liu<sup>1</sup></span>
+        <span class="author">Runqi Yin<sup>1</sup></span>
+        <span class="author">Meng-Hao Guo<sup>1</sup></span>
+        <span class="author">Shuojin Yang<sup>1,&#9993;</sup></span>
       </div>
-      <div class="affiliations">
-        <span><sup>1</sup>Affiliation One</span>
-        <span><sup>2</sup>Affiliation Two</span>
-      </div>
+      <div class="affiliations"><sup>1</sup>Tsinghua University, Beijing, China</div>
+      <p class="email">&#9993; Corresponding author</p>
 
       <nav class="links">
-        <a class="btn" href="#" target="_blank" rel="noopener">
-          <span>📄</span> Paper
+        <a class="btn" href="assets/paper.pdf" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6zm7 1.5L18.5 9H13V3.5zM8 13h8v2H8v-2zm0 4h8v2H8v-2z"/></svg>
+          Paper
         </a>
-        <a class="btn" href="#" target="_blank" rel="noopener">
-          <span>📑</span> arXiv
+        <a class="btn ghost" href="https://github.com/VG-GUI-TASKER/VG-GUI-TASKER" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.8-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+          Code
         </a>
-        <a class="btn" href="https://github.com/VG-GUI-TASKER/VG-GUI-TASKER" target="_blank" rel="noopener">
-          <span>💻</span> Code
+        <a class="btn ghost" href="https://huggingface.co/datasets/runamu/MONDAY" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm0 4v10h16V8H4zm2 2h6v2H6v-2zm0 4h6v2H6v-2z"/></svg>
+          Data
         </a>
-        <a class="btn" href="https://huggingface.co/datasets/runamu/MONDAY" target="_blank" rel="noopener">
-          <span>🗂️</span> Data
-        </a>
-        <a class="btn" href="#leaderboard">
-          <span>🏆</span> Leaderboard
+        <a class="btn ghost" href="#leaderboard">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 3h14a1 1 0 0 1 1 1v3a5 5 0 0 1-4 4.9 4 4 0 0 1-3 2.9V18h3v2H8v-2h3v-3.2a4 4 0 0 1-3-2.9A5 5 0 0 1 4 7V4a1 1 0 0 1 1-1zm1 2v2a3 3 0 0 0 2 2.8V5H6zm10 0v4.8A3 3 0 0 0 18 7V5h-2z"/></svg>
+          Leaderboard
         </a>
       </nav>
     </div>
   </header>
 
   <main>
+    <!-- Teaser / Motivation -->
     <section class="section">
-      <div class="container narrow">
+      <div class="container">
+        <figure class="figure plain">
+          <img src="assets/motivation.png" alt="Two progressive levels of video understanding: low-level VideoQA and high-level video-guided agentic tasks." />
+          <figcaption>
+            We advance video understanding from the <strong>low-level VideoQA</strong> paradigm toward the
+            <strong>high-level Video-Guided Agentic Task</strong> paradigm. The latter requires models to learn
+            procedural knowledge from a tutorial video and transfer it to long-horizon decision making &mdash; a form of
+            <em>video in-context learning</em>.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Abstract -->
+    <section class="section alt">
+      <div class="container narrow abstract">
         <h2>Abstract</h2>
+        <p class="lead">
+          Recent Multimodal Large Language Models (MLLMs) achieve remarkable performance on Video Question Answering
+          (VideoQA) benchmarks, but existing benchmarks primarily test shallow visual perception and rarely examine
+          whether MLLMs can learn deeper procedural skills from video tutorials and generalize them to long-horizon
+          agentic tasks. To address this gap, we introduce <strong>VG-GUI-Bench</strong> (Video-Guided GUI Benchmark),
+          a new benchmark that evaluates whether MLLM-based GUI agents can follow video tutorials to complete
+          corresponding interactive GUI tasks.
+        </p>
         <p>
-          VG-GUI-Bench evaluates how well multimodal large language models (VLMs) can predict the
-          next GUI action on a mobile device, given reference frames extracted from YouTube tutorial
-          videos and the current screen state. The benchmark is built on the
-          <a href="https://huggingface.co/datasets/runamu/MONDAY" target="_blank" rel="noopener">MONDAY</a> dataset.
-          Given a tutorial video showing how to complete a task on a mobile phone, the model must
-          understand the workflow from reference frames, identify its current position in the task
-          from previous action history, and predict the exact next action on the current screen.
+          We further observe that performance on both VideoQA and video-guided agentic tasks critically depends on
+          effective keyframe extraction. Based on this, we propose <strong>TASKER</strong>
+          (<strong>Ta</strong>sk-driven <strong>a</strong>nd <strong>S</strong>cene-aware <strong>Ke</strong>yframe
+          sea<strong>r</strong>cher), a keyframe extraction algorithm that jointly considers task relevance and scene
+          dynamics. TASKER yields significant gains on both VideoQA and video-guided agentic benchmarks, outperforming
+          the best baseline by <strong>2.0%</strong> on the EgoSchema fullset and <strong>1.8%</strong> on NExT-QA,
+          highlighting the potential of generalized keyframe extraction for video understanding.
         </p>
       </div>
     </section>
 
-    <section class="section alt">
-      <div class="container narrow">
-        <h2>Task Formulation</h2>
-        <p>Given a tutorial video, the model predicts the next GUI action by reasoning over:</p>
-        <ol class="steps">
-          <li>Understanding the workflow from reference frames (keyframes / uniform samples / annotated frames).</li>
-          <li>Identifying the current position in the task from previous action history.</li>
-          <li>Predicting the <strong>exact next action</strong> on the current screen.</li>
-        </ol>
-
-        <h3>Supported Actions</h3>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th>Action</th><th>Format</th><th>Description</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>CLICK</td><td><code>CLICK(x, y)</code></td><td>Tap at normalized coordinates (0.0–1.0)</td></tr>
-              <tr><td>SCROLL</td><td><code>SCROLL(x1, y1, x2, y2)</code></td><td>Swipe gesture</td></tr>
-              <tr><td>TYPE</td><td><code>TYPE("text")</code></td><td>Text input</td></tr>
-              <tr><td>PRESS</td><td><code>PRESS("key")</code></td><td>BACK / HOME / ENTER</td></tr>
-              <tr><td>ZOOM</td><td><code>ZOOM()</code></td><td>Multi-touch gesture</td></tr>
-              <tr><td>FINISH</td><td><code>FINISH()</code></td><td>Task complete or impossible</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
+    <!-- Contributions -->
     <section class="section">
-      <div class="container narrow">
-        <h2>Reference Image Modes</h2>
-        <p>The benchmark supports 12 reference modes to study how different visual context strategies affect agent performance.</p>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Mode</th><th>Description</th></tr></thead>
-            <tbody>
-              <tr><td><code>single</code></td><td>No reference frames; only the current screen</td></tr>
-              <tr><td><code>origin</code></td><td>Scene-timestamp keyframes from video</td></tr>
-              <tr><td><code>gt</code></td><td>Ground-truth annotated frame with red bounding box (oracle)</td></tr>
-              <tr><td><code>annotation</code></td><td>Annotated keyframes as reference</td></tr>
-              <tr><td><code>uniform5</code> / <code>uniform10</code></td><td>5 or 10 uniformly sampled frames</td></tr>
-              <tr><td><code>tasker</code> / <code>bfs</code> / <code>gbfs</code> / <code>dijkstra</code></td><td>Algorithmic keyframe selection strategies</td></tr>
-              <tr><td><code>videoagent</code> / <code>videotree</code></td><td>Video understanding agent-based frame selection</td></tr>
-            </tbody>
-          </table>
+      <div class="container">
+        <h2>Contributions</h2>
+        <p class="section-sub">Three key contributions bridging perception and action in video understanding.</p>
+        <div class="cards">
+          <div class="card">
+            <div class="icon">&#9783;</div>
+            <h3>A Two-Level Taxonomy</h3>
+            <p>We identify a key limitation of existing video benchmarks and propose a taxonomy connecting low-level
+              VideoQA with high-level video-guided agentic tasks, highlighting the role of video in-context learning.</p>
+          </div>
+          <div class="card">
+            <div class="icon">&#128241;</div>
+            <h3>VG-GUI-Bench</h3>
+            <p>A new benchmark that pairs tutorial videos with GUI agent tasks to evaluate procedural knowledge transfer
+              from videos, with 1,000 long-horizon test cases and four complementary metrics.</p>
+          </div>
+          <div class="card">
+            <div class="icon">&#128269;</div>
+            <h3>TASKER</h3>
+            <p>A task-driven and scene-aware keyframe extraction algorithm, formulated as a generalized graph search,
+              that improves both accuracy and frame efficiency across VideoQA and agentic tasks.</p>
+          </div>
         </div>
-        <p class="note">Each mode runs in <strong>cut</strong> (cropped to phone screen) or <strong>nocut</strong> (full frame) variant.</p>
       </div>
     </section>
 
-    <section class="section alt" id="leaderboard">
-      <div class="container narrow">
-        <h2>🏆 Leaderboard</h2>
-        <p>Action prediction accuracy across models. <em>(Replace with your results.)</em></p>
+    <!-- VG-GUI-Bench -->
+    <section class="section alt">
+      <div class="container">
+        <h2>VG-GUI-Bench</h2>
+        <p class="section-sub">
+          A dedicated benchmark for evaluating MLLM-based GUI agents on long-horizon tasks guided by video tutorials,
+          built upon the MONDAY dataset.
+        </p>
+        <figure class="figure">
+          <img src="assets/VG-GUI-Bench.png" alt="Overview of the VG-GUI-Bench benchmark: pipeline, action space, and metrics." />
+          <figcaption>Overview of VG-GUI-Bench: the benchmark pipeline, the standardized action space, and the evaluation metrics with their formulas.</figcaption>
+        </figure>
+
+        <div class="stats">
+          <div class="stat"><div class="num">1,000</div><div class="label">Test cases</div></div>
+          <div class="stat"><div class="num">10.71</div><div class="label">Avg. steps / episode</div></div>
+          <div class="stat"><div class="num">6</div><div class="label">Standardized actions</div></div>
+          <div class="stat"><div class="num">4</div><div class="label">Evaluation metrics</div></div>
+        </div>
+
+        <h3>Standardized Action Space</h3>
         <div class="table-wrap">
           <table>
+            <thead><tr><th>Action</th><th>Format</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td>CLICK</td><td><code>CLICK(x, y)</code></td><td>Tap at coordinate (x, y)</td></tr>
+              <tr><td>SCROLL</td><td><code>SCROLL(x1, y1, x2, y2)</code></td><td>Swipe / drag gesture between two points</td></tr>
+              <tr><td>TYPE</td><td><code>TYPE(content)</code></td><td>Input a text string</td></tr>
+              <tr><td>PRESS</td><td><code>PRESS(key)</code></td><td>System key &isin; {BACK, HOME, ENTER}</td></tr>
+              <tr><td>ZOOM</td><td><code>ZOOM()</code></td><td>Pinch-to-zoom gesture</td></tr>
+              <tr><td>FINISH</td><td><code>FINISH()</code></td><td>Task completed</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Evaluation Metrics</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Metric</th><th>Meaning</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Accuracy</strong></td><td>Step correctness: 0.3 for the right action type, +0.7 for the right arguments.</td></tr>
+              <tr><td><strong>Completion</strong></td><td>Proportion of correctly executed steps per episode, averaged across episodes.</td></tr>
+              <tr><td><strong>Efficiency</strong></td><td>Average number of input frames consumed per prediction step (lower is better).</td></tr>
+              <tr><td><strong>PIR</strong></td><td>Performance Improvement Rate &mdash; relative accuracy gain from adding the video tutorial.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TASKER Method -->
+    <section class="section">
+      <div class="container">
+        <h2>TASKER Algorithm</h2>
+        <p class="section-sub">
+          TASKER reformulates keyframe extraction as a generalized graph-search problem. The video is split into
+          segments (nodes), and an MLLM evaluates cost functions and termination confidence to decide which segments to
+          expand &mdash; selecting a compact yet informative set of keyframes.
+        </p>
+        <figure class="figure">
+          <img src="assets/TASKER.png" alt="Illustration of TASKER's cost function evaluation and node expansion steps." />
+          <figcaption>
+            TASKER's cost-function evaluation and node-expansion steps. The <strong>GBFS</strong> variant evaluates
+            distance based on question relevance; the <strong>Dijkstra</strong> variant evaluates distance based on
+            scene dynamics.
+          </figcaption>
+        </figure>
+
+        <div class="variants">
+          <div class="variant">
+            <span class="tag">TASKER-GBFS</span>
+            <p><strong>Task-driven.</strong> The MLLM estimates which segment most likely contains the missing
+              goal-critical information, then expands the node closest to the destination (the question).</p>
+          </div>
+          <div class="variant">
+            <span class="tag">TASKER-Dijkstra</span>
+            <p><strong>Scene-aware.</strong> Without knowing the question, the MLLM selects the segment with the most
+              significant scene change, prioritizing intrinsic visual structure.</p>
+          </div>
+          <div class="variant">
+            <span class="tag">TASKER-A*</span>
+            <p><strong>Task-driven &amp; scene-aware.</strong> Combines both signals &mdash; only segments that are
+              goal-relevant <em>and</em> show large state changes are prioritized.</p>
+          </div>
+          <div class="variant">
+            <span class="tag">TASKER-BFS</span>
+            <p><strong>Naive.</strong> A breadth-first variant that requires no MLLM cost evaluation, steadily
+              expanding all segments to avoid overlooking information.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results: VideoQA -->
+    <section class="section alt">
+      <div class="container">
+        <h2>Results on VideoQA</h2>
+        <p class="section-sub">
+          In a training-free, zero-shot setting, TASKER consistently outperforms prior temporal-selection and
+          video-agent methods on EgoSchema and NExT-QA. Gains over VideoTree are shown in green.
+        </p>
+        <div class="table-wrap">
+          <table class="tbl-center">
             <thead>
-              <tr><th>#</th><th>Model</th><th>Type Acc.</th><th>Param Acc.</th><th>Overall</th></tr>
+              <tr>
+                <th>Method</th><th>(M)LLM</th>
+                <th>EgoSchema Sub.</th><th>EgoSchema Full</th>
+                <th>NExT-QA Tem.</th><th>NExT-QA Cau.</th><th>NExT-QA Des.</th><th>NExT-QA Avg.</th>
+              </tr>
             </thead>
             <tbody>
-              <tr><td>1</td><td>Model A</td><td>—</td><td>—</td><td>—</td></tr>
-              <tr><td>2</td><td>Model B</td><td>—</td><td>—</td><td>—</td></tr>
-              <tr><td>3</td><td>Model C</td><td>—</td><td>—</td><td>—</td></tr>
+              <tr><td>VideoAgent</td><td>GPT-4</td><td>60.2</td><td>54.1</td><td>64.5</td><td>72.7</td><td>81.1</td><td>71.3</td></tr>
+              <tr><td>VideoTree</td><td>GPT-4</td><td>66.2</td><td>61.1</td><td>70.6</td><td>76.5</td><td>83.9</td><td>75.6</td></tr>
+              <tr class="highlight"><td>TASKER (Ours)</td><td>GPT-4</td>
+                <td>68.0 <span class="up">+1.8</span></td><td>63.1 <span class="up">+2.0</span></td>
+                <td>72.3 <span class="up">+1.7</span></td><td>78.2 <span class="up">+1.7</span></td>
+                <td>85.4 <span class="up">+1.5</span></td><td>77.4 <span class="up">+1.8</span></td></tr>
+              <tr class="highlight"><td>TASKER (Ours)</td><td>GPT-4o</td>
+                <td>68.6 <span class="up">+2.4</span></td><td>63.6 <span class="up">+2.5</span></td>
+                <td>72.9 <span class="up">+2.3</span></td><td>79.0 <span class="up">+2.5</span></td>
+                <td>86.1 <span class="up">+2.2</span></td><td>78.1 <span class="up">+2.5</span></td></tr>
+              <tr><td>VideoTree</td><td>Qwen3-VL</td><td>77.2</td><td>76.7</td><td>81.9</td><td>85.1</td><td>86.3</td><td>84.3</td></tr>
+              <tr class="highlight"><td>TASKER (Ours)</td><td>Qwen3-VL</td>
+                <td>79.4 <span class="up">+2.2</span></td><td>77.3 <span class="up">+0.6</span></td>
+                <td>83.6 <span class="up">+1.7</span></td><td>85.3 <span class="up">+0.2</span></td>
+                <td>87.5 <span class="up">+1.2</span></td><td>85.1 <span class="up">+0.8</span></td></tr>
             </tbody>
           </table>
         </div>
+        <p class="caption">TASKER outperforms all baselines while using only ~15% of the total frames.</p>
+
+        <figure class="figure small" style="margin-top:40px;">
+          <img src="assets/TASKER_efficiency.png" alt="Frame efficiency curve comparing TASKER with LLoVi, VideoAgent and VideoTree." />
+          <figcaption>
+            <strong>Frame efficiency.</strong> At the same accuracy level (66%), TASKER uses only about <strong>1/4</strong>
+            of the frames required by VideoTree on EgoSchema, demonstrating a superior ability to identify key information.
+          </figcaption>
+        </figure>
       </div>
     </section>
 
+    <!-- Leaderboard -->
+    <section class="section" id="leaderboard">
+      <div class="container">
+        <h2>&#127942; VG-GUI-Bench Leaderboard</h2>
+        <p class="section-sub">
+          Frontier MLLMs evaluated on VG-GUI-Bench, with no video input vs. 10 uniformly sampled frames. Adding video
+          consistently improves performance, confirming the benefit of temporal visual guidance.
+        </p>
+        <div class="table-wrap">
+          <table class="tbl-center">
+            <thead>
+              <tr><th>#</th><th>Model</th><th>Setting</th><th>Acc. (%)</th><th>Type Acc. (%)</th><th>Comp. (%)</th><th>PIR</th></tr>
+            </thead>
+            <tbody>
+              <tr class="highlight"><td>1</td><td>Gemini-3.1-Pro</td><td>No Video</td><td class="best">58.51</td><td>74.58</td><td>78.53</td><td>&mdash;</td></tr>
+              <tr class="highlight"><td>1</td><td>Gemini-3.1-Pro</td><td>10 Uniform Frames</td><td class="best">61.68</td><td>76.25</td><td>78.61</td><td>0.054</td></tr>
+              <tr><td>2</td><td>GPT-5-mini</td><td>No Video</td><td>55.76</td><td>71.93</td><td>75.97</td><td>&mdash;</td></tr>
+              <tr><td>2</td><td>GPT-5-mini</td><td>10 Uniform Frames</td><td>58.40</td><td>75.27</td><td>78.96</td><td>0.047</td></tr>
+              <tr><td>3</td><td>Kimi-K2.5</td><td>No Video</td><td>57.22</td><td>72.91</td><td>76.31</td><td>&mdash;</td></tr>
+              <tr><td>3</td><td>Kimi-K2.5</td><td>10 Uniform Frames</td><td>58.22</td><td>74.78</td><td>78.72</td><td>0.017</td></tr>
+              <tr><td>4</td><td>Claude-Sonnet-4.6</td><td>No Video</td><td>44.35</td><td>67.81</td><td>72.24</td><td>&mdash;</td></tr>
+              <tr><td>4</td><td>Claude-Sonnet-4.6</td><td>10 Uniform Frames</td><td>45.80</td><td>67.71</td><td>72.35</td><td>0.033</td></tr>
+              <tr><td>5</td><td>Seed-2.0-Pro</td><td>No Video</td><td>35.93</td><td>70.66</td><td>74.75</td><td>&mdash;</td></tr>
+              <tr><td>5</td><td>Seed-2.0-Pro</td><td>10 Uniform Frames</td><td>39.78</td><td>75.96</td><td>79.36</td><td>0.107</td></tr>
+              <tr><td>6</td><td>Qwen3-VL-235B-A22B</td><td>No Video</td><td>25.90</td><td>66.63</td><td>69.73</td><td>&mdash;</td></tr>
+              <tr><td>6</td><td>Qwen3-VL-235B-A22B</td><td>10 Uniform Frames</td><td>26.88</td><td>67.42</td><td>71.69</td><td>0.038</td></tr>
+              <tr><td>7</td><td>Gemini-3.1-Flash</td><td>No Video</td><td>24.73</td><td>67.03</td><td>70.54</td><td>&mdash;</td></tr>
+              <tr><td>7</td><td>Gemini-3.1-Flash</td><td>10 Uniform Frames</td><td>26.02</td><td>69.19</td><td>72.60</td><td>0.052</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>TASKER &amp; Keyframe-Selection Methods on VG-GUI-Bench</h3>
+        <p class="section-sub" style="margin-bottom:20px;">All methods use Qwen3-VL-235B-A22B-Instruct as the base LLM. Best results are highlighted.</p>
+        <div class="table-wrap">
+          <table class="tbl-center">
+            <thead>
+              <tr><th>Method</th><th>Acc. (%)</th><th>Type Acc. (%)</th><th>Comp. (%)</th><th>Eff. &darr;</th><th>PIR</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>No Video</td><td>25.32</td><td>65.85</td><td>69.03</td><td>0</td><td>&mdash;</td></tr>
+              <tr><td>Uniform Sampling</td><td>39.82</td><td>66.34</td><td>70.64</td><td>10.88</td><td>0.573</td></tr>
+              <tr><td>Oracle Keyframes</td><td>44.32</td><td>73.31</td><td>76.32</td><td>1</td><td>0.750</td></tr>
+              <tr><td>VideoTree</td><td>40.79</td><td>67.52</td><td>71.93</td><td>10.00</td><td>0.611</td></tr>
+              <tr><td>VideoAgent</td><td>39.86</td><td>67.03</td><td>71.17</td><td>5.12</td><td>0.574</td></tr>
+              <tr><td>TASKER-Dijkstra</td><td>40.75</td><td class="best">71.05</td><td class="best">74.39</td><td>5.88</td><td>0.609</td></tr>
+              <tr class="highlight"><td>TASKER-A*</td><td class="best">40.96</td><td>67.71</td><td>71.38</td><td>8.24</td><td class="best">0.618</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="caption">
+          TASKER-A* attains the highest overall accuracy and PIR, surpassing the strong VideoTree baseline, while
+          TASKER-Dijkstra approaches the Oracle Keyframe upper bound on task completion.
+        </p>
+      </div>
+    </section>
+
+    <!-- Visualization -->
+    <section class="section alt">
+      <div class="container">
+        <h2>Search Visualization</h2>
+        <p class="section-sub">
+          A case study of TASKER solving a VideoQA example from EgoSchema. The key information lies between 126s&ndash;130s;
+          TASKER traverses the video tree (yellow path) and converges to the correct keyframes (green leaf).
+        </p>
+        <figure class="figure">
+          <img src="assets/TASKER_visualization.png" alt="Visualization of the tree-search and node-expansion process of TASKER." />
+          <figcaption>Tree-search and node-expansion process of TASKER on an EgoSchema case. Nodes on the key search path are marked in yellow; the final leaf node is marked in green.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- BibTeX -->
     <section class="section">
       <div class="container narrow">
         <h2>BibTeX</h2>
-        <pre class="bibtex"><code>@misc{vgguibench2026,
-  title  = {VG-GUI-Bench: A Video-Grounded GUI Agent Benchmark},
-  author = {Author One and Author Two and Author Three},
-  year   = {2026},
-  url    = {https://vg-gui-tasker.github.io}
+        <pre class="bibtex"><code>@inproceedings{fan2026bridging,
+  title     = {Bridging VideoQA and Video-Guided Agentic Tasks
+               via Generalized Keyframe Extraction},
+  author    = {Fan, Sunqi and Liu, Qingle and Yin, Runqi and
+               Guo, Meng-Hao and Yang, Shuojin},
+  booktitle = {European Conference on Computer Vision (ECCV)},
+  year      = {2026}
 }</code></pre>
       </div>
     </section>
@@ -149,11 +351,12 @@
   <footer class="footer">
     <div class="container">
       <p>
-        Built on the <a href="https://huggingface.co/datasets/runamu/MONDAY" target="_blank" rel="noopener">MONDAY</a> dataset.
-        Action matching adapted from
-        <a href="https://github.com/google-research/google-research/tree/master/android_in_the_wild" target="_blank" rel="noopener">Android-in-the-Wild</a>.
+        VG-GUI-Bench is built on the
+        <a href="https://huggingface.co/datasets/runamu/MONDAY" target="_blank" rel="noopener">MONDAY</a> dataset.
+        Code and data:
+        <a href="https://github.com/VG-GUI-TASKER/VG-GUI-TASKER" target="_blank" rel="noopener">GitHub</a>.
       </p>
-      <p class="muted">&copy; 2026 VG-GUI-Bench. Page template is free to use.</p>
+      <p class="muted">&copy; 2026 VG-GUI-Bench &amp; TASKER &middot; Tsinghua University &middot; Accepted by ECCV 2026.</p>
     </div>
   </footer>
 </body>
